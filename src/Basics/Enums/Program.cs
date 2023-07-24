@@ -40,10 +40,29 @@ Console.WriteLine(orderStatusFromString);
 
 // Hint: zastosuj enum
 
+Console.Write("Podaj status: ");
+string? documentStatusString = Console.ReadLine();
 
+if (documentStatusString != null)
+{
+    bool isValid = Enum.TryParse(documentStatusString, out DocumentStatus documentStatus);
 
-
-
+    if (isValid)
+    {
+        if (documentStatus == DocumentStatus.Draft)
+        {
+            Console.WriteLine("Dokument w trakcie edycji");
+        }
+        else if (documentStatus == DocumentStatus.Accept)
+        {
+            Console.WriteLine("Dokument został zatwierdzony");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Nieobsługiwany status dokumentu");
+    }
+}
 
 // 0 - Registered
 // 1 - Shipping
@@ -56,4 +75,10 @@ enum OrderStatus
     Shipping,
     Cancelled,
     Delivered
+}
+
+enum DocumentStatus
+{
+    Draft,
+    Accept
 }
