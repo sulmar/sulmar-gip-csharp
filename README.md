@@ -10,3 +10,20 @@ Witaj! Repozyzorium zawiera przykładowy kod C#
 ```
 git clone https://github.com/sulmar-gip-csharp
 ```
+
+##
+```
+dotnet --version
+```
+
+```
+dotnet new console -o HelloWorld
+```
+
+```
+dotnet build
+```
+
+```
+dotnet run
+```
