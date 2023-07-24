@@ -11,7 +11,7 @@ Witaj! Repozyzorium zawiera przykładowy kod C#
 git clone https://github.com/sulmar-gip-csharp
 ```
 
-##
+## First App
 ```
 dotnet --version
 ```
