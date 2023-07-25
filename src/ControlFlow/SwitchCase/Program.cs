@@ -1,4 +1,6 @@
-﻿// Role
+﻿// https://blog.hackajob.com/better-c-switch-statements-for-a-range-of-values/
+
+// Role
 // If role is guest: Guest User
 // If it is moderator or administrator: Moderator User
 // Otherwise: Unknown User
