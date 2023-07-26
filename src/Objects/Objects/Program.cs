@@ -13,7 +13,7 @@
 //string vin2 = "45678";
 
 // utwórz obiekt (instancję klasy)
-Person person1 = new Person()
+Person person1 = new Man()
 {                               // Inicjalizator
     firstName = "Marcin",
     lastName = "Sulecki",
@@ -74,7 +74,7 @@ vehicle2.Display();
 
 
 
-class Person
+abstract class Person
 {
     public string firstName;
     public required string lastName;
