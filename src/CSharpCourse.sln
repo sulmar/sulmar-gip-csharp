@@ -67,6 +67,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exceptions", "Objects\Excep
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopping", "Objects\Shopping\Shopping.csproj", "{59AAF727-CA69-4881-94E9-3F151476D9ED}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UseCases", "UseCases", "{1238268B-4D80-48E4-B257-D61D75D5378C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsvReader", "UseCases\CsvReader\CsvReader.csproj", "{9024D860-7808-4EC5-BD29-8027C2B97D48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -181,6 +185,10 @@ Global
 		{59AAF727-CA69-4881-94E9-3F151476D9ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59AAF727-CA69-4881-94E9-3F151476D9ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59AAF727-CA69-4881-94E9-3F151476D9ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9024D860-7808-4EC5-BD29-8027C2B97D48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9024D860-7808-4EC5-BD29-8027C2B97D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9024D860-7808-4EC5-BD29-8027C2B97D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9024D860-7808-4EC5-BD29-8027C2B97D48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -213,6 +221,7 @@ Global
 		{183FCF9F-0A4C-4B18-8B20-AA567A5325B9} = {AF050099-EC96-4657-A15E-61AE621D1798}
 		{2709AAAA-5D85-4925-BDA9-3CD5C44083D9} = {AF050099-EC96-4657-A15E-61AE621D1798}
 		{59AAF727-CA69-4881-94E9-3F151476D9ED} = {AF050099-EC96-4657-A15E-61AE621D1798}
+		{9024D860-7808-4EC5-BD29-8027C2B97D48} = {1238268B-4D80-48E4-B257-D61D75D5378C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2F244696-2987-494F-A5A2-172BC3972DC0}
