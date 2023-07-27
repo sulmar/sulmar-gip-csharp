@@ -22,15 +22,17 @@ selectedProduct.IncrementRank();
 
 try
 {
-    selectedProduct.SetDiscount(100);
+    selectedProduct.Discount = 100;
 
-    Console.WriteLine(selectedProduct.GetDiscount());
 
-    selectedProduct.SetDiscount(700);
 
-    
+    Console.WriteLine(selectedProduct.Discount);
+
+    selectedProduct.Discount = 700;
+
+
 }
-catch(ArgumentException e)
+catch (ArgumentException e)
 {
     Console.WriteLine(e.Message);
 }
@@ -43,18 +45,58 @@ foreach (Product product in products)
     if (product.isAvailable)
     {
         product.Display();
-    }   
+    }
 }
 
 class Product
 {
-    public string name;
-    public string description;
-    public string barcode;
-    public decimal price;
-    
+    //private string name;
+
+    //public string Name
+    //{
+    //    set
+    //    { 
+    //        name = value; 
+    //    }
+    //    get
+    //    {
+    //        return name;
+    //    }
+    //}
+
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public string Barcode { get; set; }
+    public decimal Price { get; set; }
+
     // scope (zakres widzialności)
 
+
+    private decimal discount; // pole (back field)
+
+    // Właściwość (property)
+    public decimal Discount
+    {
+        // setter
+        set
+        {
+            if (value > Price)
+            {
+                throw new ArgumentException("Wartość upustu nie może przekraczać ceny produktu.");
+            }
+
+            discount = value;
+        }
+
+        // getter
+        get
+        {
+            return this.discount;
+        }
+    }
+
+
+    /*
     // hermetyzacja danych
     private decimal discount; // pole (back field)
     
@@ -74,9 +116,10 @@ class Product
     {
         return discount;
     }
+    */
 
     public string? color;
-    
+
     private byte rank;
 
     public void IncrementRank()
@@ -86,13 +129,13 @@ class Product
     }
 
     public bool isAvailable;
-//  public bool canDiscount;
+    //  public bool canDiscount;
 
     public Product(string name, string barcode, decimal price, byte rank = 1)
     {
-        this.name = name;
-        this.barcode = barcode;
-        this.price = price;
+        this.Name = name;
+        this.Barcode = barcode;
+        this.Price = price;
         this.rank = rank;
 
         this.isAvailable = true;
@@ -102,12 +145,12 @@ class Product
     {
         decimal actualPrice = GetDiscountedPrice();
 
-        Console.WriteLine($"{name} - cena {actualPrice:N2}PLN {GetAsterix(rank)}");
+        Console.WriteLine($"{Name} - cena {actualPrice:N2}PLN {GetAsterix(rank)}");
     }
 
     public decimal GetDiscountedPrice()
     {
-        return price - discount;
+        return Price - discount;
     }
 
     public string GetAsterix(byte number)
