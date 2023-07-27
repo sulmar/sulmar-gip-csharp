@@ -1,7 +1,7 @@
 ﻿
 List<Product> products = new List<Product>
 {
-    new Product("Język C# od podstaw", "1234", 199.99m) { isAvailable = false },
+    new Product("Język C# od podstaw", "1234", 199.99m) { IsAvailable = false },
     new Product("Szybka klawiatura", "1234", 239.99m),
     new Product("Język C# dla zaawansowanych", "1234", 599.99m),
     new Product("Szybka myszka", "1234", 199.99m),
@@ -44,7 +44,7 @@ foreach (Product product in products)
 {
     product.IncrementRank();
 
-    if (product.isAvailable)
+    if (product.IsAvailable)
     {
         product.Display();
     }
@@ -139,8 +139,8 @@ class Product
     }
 
     
+    public bool IsAvailable { get; set; }
 
-    public bool isAvailable;
     //  public bool canDiscount;
 
     public Product(string name, string barcode, decimal price, byte rank = 1)
@@ -150,7 +150,7 @@ class Product
         this.Price = price;
         this.rank = rank;
 
-        this.isAvailable = true;
+        this.IsAvailable = true;
     }
 
     public void Display()
@@ -178,3 +178,87 @@ class Product
     }
 
 }
+
+
+abstract class Base
+{
+    public DateTime CreateOn { get; set; }
+    public DateTime? ModifiedOn { get; set; }
+}
+
+class Order : Base
+{
+    public DateTime OrderDate { get; set; }
+    public DateTime ShippingDate { get; set; }
+    public Customer Customer { get; set; }
+    public Address ShippingAddress { get; set; }
+    public OrderStatus Status { get; set; }
+    public List<OrderDetail> Details { get; set; }
+
+    public Order()
+    {
+        Details = new List<OrderDetail>();
+    }
+
+}
+
+class OrderDetail : Base
+{
+    public Product Product { get; set; }    
+    public int Quantity {  get; set; }
+    public decimal Amount { get; set; }
+    public decimal TotalAmount
+    {
+        get
+        {
+            return Quantity * Amount;
+        }
+    }
+
+}
+
+enum OrderStatus
+{
+    Registered,
+    Picking,
+    Shipping,
+    Delivered,
+}
+
+class Customer : Base
+{
+    public Guid Id { get; set; }
+    public string Number { get; set; }
+    public string ShortName { get; set; }
+    public string FullName { get; set; }
+    public string TaxNumber { get; set; }
+    public Address WorkAddress { get; set; }
+
+    public Customer()
+    {
+        Id = Guid.NewGuid();
+    }
+}
+
+public struct Address
+{
+    public string Street { get; set; }
+    public string City { get; set; }
+    public string Postcode { get; set; }
+    public string Country { get; set; }
+
+
+}
+
+
+// Zamówienie
+// - dane teleadresowe klienta
+// - adres dostawy
+// - status realizacji
+// - data zamówienia
+// - data realizacji
+// - sposób dostawy (glovo, paczkomat)
+// - płatność
+// - kwota całkowita
+// - pozycje zamówienia
+//     | nazwa | kod kreskowy | ilość | cena | wartość (ilość * cena)

@@ -65,7 +65,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Objects", "Objects\Objects\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exceptions", "Objects\Exceptions\Exceptions.csproj", "{2709AAAA-5D85-4925-BDA9-3CD5C44083D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopping", "Objects\Shopping\Shopping.csproj", "{59AAF727-CA69-4881-94E9-3F151476D9ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopping", "Objects\Shopping\Shopping.csproj", "{59AAF727-CA69-4881-94E9-3F151476D9ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
