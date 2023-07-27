@@ -7,21 +7,38 @@ List<Product> products = new List<Product>
     new Product("Szybka myszka", "1234", 199.99m),
 };
 
-products.Add(new Product("Język C# od podstaw", "1234", 99.99m) {  rank = 4 });
+products.Add(new Product("Język C# od podstaw", "1234", 99.99m, 4));
 products.Add(new Product("Język C# od podstaw", "1234", 99.99m));
 
 Product selectedProduct = products[2];
-selectedProduct.rank++;
-selectedProduct.rank++;
-selectedProduct.rank++;
-selectedProduct.rank++;
-selectedProduct.rank++;
-selectedProduct.rank++;
+
+selectedProduct.IncrementRank();
+selectedProduct.IncrementRank();
+selectedProduct.IncrementRank();
+selectedProduct.IncrementRank();
+selectedProduct.IncrementRank();
+selectedProduct.IncrementRank();
+
+
+try
+{
+    selectedProduct.SetDiscount(100);
+
+    Console.WriteLine(selectedProduct.GetDiscount());
+
+    selectedProduct.SetDiscount(700);
+
+    
+}
+catch(ArgumentException e)
+{
+    Console.WriteLine(e.Message);
+}
 
 
 foreach (Product product in products)
 {
-    product.rank++;
+    product.IncrementRank();
 
     if (product.isAvailable)
     {
@@ -35,17 +52,48 @@ class Product
     public string description;
     public string barcode;
     public decimal price;
-    public decimal discount;
+    
+    // scope (zakres widzialności)
+
+    // hermetyzacja danych
+    private decimal discount; // pole (back field)
+    
+    // setter
+    public void SetDiscount(decimal value)
+    {
+        if (value > price)
+        {
+            throw new ArgumentException("Wartość upustu nie może przekraczać ceny produktu.");
+        }
+
+        this.discount = value;
+    }
+
+    // getter
+    public decimal GetDiscount()
+    {
+        return discount;
+    }
+
     public string? color;
-    public byte rank;
+    
+    private byte rank;
+
+    public void IncrementRank()
+    {
+        if (rank < 5)
+            rank++;
+    }
+
     public bool isAvailable;
 //  public bool canDiscount;
 
-    public Product(string name, string barcode, decimal price)
+    public Product(string name, string barcode, decimal price, byte rank = 1)
     {
         this.name = name;
         this.barcode = barcode;
         this.price = price;
+        this.rank = rank;
 
         this.isAvailable = true;
     }
