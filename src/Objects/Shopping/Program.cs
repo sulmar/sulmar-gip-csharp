@@ -19,6 +19,8 @@ selectedProduct.IncrementRank();
 selectedProduct.IncrementRank();
 selectedProduct.IncrementRank();
 
+Console.WriteLine(selectedProduct.Rank);
+
 
 try
 {
@@ -122,11 +124,21 @@ class Product
 
     private byte rank;
 
+    public byte Rank 
+    {
+        get
+        {
+            return this.rank;
+        }
+    }
+
     public void IncrementRank()
     {
         if (rank < 5)
             rank++;
     }
+
+    
 
     public bool isAvailable;
     //  public bool canDiscount;
@@ -143,15 +155,22 @@ class Product
 
     public void Display()
     {
-        decimal actualPrice = GetDiscountedPrice();
-
-        Console.WriteLine($"{Name} - cena {actualPrice:N2}PLN {GetAsterix(rank)}");
+        Console.WriteLine($"{Name} - cena {DiscountedPrice:N2}PLN {GetAsterix(rank)}");
     }
 
-    public decimal GetDiscountedPrice()
+    // Właściwość tylko do odczytu (read-only)
+    public decimal DiscountedPrice
     {
-        return Price - discount;
+        get
+        {
+            return Price - discount;
+        }
     }
+
+    //public decimal GetDiscountedPrice()
+    //{
+    //    return Price - discount;
+    //}
 
     public string GetAsterix(byte number)
     {
