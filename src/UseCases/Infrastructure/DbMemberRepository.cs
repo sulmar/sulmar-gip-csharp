@@ -16,6 +16,8 @@ namespace Infrastructure
         {         
             string sql = "SELECT MemberId, Firstname, Company, Position, Salary, Date FROM dbo.Members";
 
+            connection.Open();
+
             SqlCommand command = new SqlCommand(sql, connection);
 
             SqlDataReader reader = command.ExecuteReader();
