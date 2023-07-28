@@ -1,0 +1,14 @@
+﻿@page
+@model RazorPagesWebApp.Pages.DocumentsModel
+@{
+}
+
+
+<ul>
+
+@foreach(Document document in Model.Documents)
+{
+        <li><strong>@document.Title</strong> @document.Content</li>
+}
+
+</ul>
