@@ -40,14 +40,17 @@ catch (ArgumentException e)
 }
 
 
-foreach (Product product in products)
+// Linq (wyrażenia lambda => )
+
+List<Product> filteredProducts = products
+    .Where(p => p.IsAvailable)
+    .OrderByDescending(p => p.Price)
+    .ToList();
+
+foreach (Product product in filteredProducts)
 {
     product.IncrementRank();
-
-    if (product.IsAvailable)
-    {
-        product.Display();
-    }
+    product.Display();
 }
 
 class Product
@@ -124,7 +127,7 @@ class Product
 
     private byte rank;
 
-    public byte Rank 
+    public byte Rank
     {
         get
         {
@@ -138,7 +141,7 @@ class Product
             rank++;
     }
 
-    
+
     public bool IsAvailable { get; set; }
 
     //  public bool canDiscount;
@@ -204,8 +207,8 @@ class Order : Base
 
 class OrderDetail : Base
 {
-    public Product Product { get; set; }    
-    public int Quantity {  get; set; }
+    public Product Product { get; set; }
+    public int Quantity { get; set; }
     public decimal Amount { get; set; }
     public decimal TotalAmount
     {

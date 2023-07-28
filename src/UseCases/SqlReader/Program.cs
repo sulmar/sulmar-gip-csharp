@@ -1,4 +1,4 @@
-﻿
+﻿using Models;
 
 // ADO.NET
 
@@ -66,6 +66,7 @@ void AddMember(SqlConnection connection, Person person)
     addCommand.ExecuteNonQuery();
 }
 
+
 List<Person> GetMembers(SqlConnection connection)
 {
     string sql = "SELECT MemberId, Firstname, Company, Position, Salary, Date FROM dbo.Members";
@@ -97,19 +98,5 @@ List<Person> GetMembers(SqlConnection connection)
     }
 
     return members;
-}
-
-abstract class Base
-{
-    public int Id { get; set; }
-}
-
-class Person : Base
-{
-    public string FirstName { get; set; }
-    public string Company { get; set; }
-    public string Position { get; set; }
-    public decimal Salary { get; set; } 
-    public DateTime Date { get; set; }
 }
 
