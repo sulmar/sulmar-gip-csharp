@@ -8,9 +8,10 @@ Console.WriteLine(interestRate);
 
 const byte speedLimit = 140;
 
+int speed = 100;
+
 if (speed > speedLimit)
 {
 }
 
 
-// TODO: readonly
