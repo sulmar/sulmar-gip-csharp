@@ -12,7 +12,7 @@ To take this course you'll need the following.
 ## Clone the Course Git Repository
 
 ```
-git clone https://github.com/nobleprog-programduon-blazor
+git clone https://github.com/sulmar-gip-csharp
 ```
 
 ## Commands CLI
